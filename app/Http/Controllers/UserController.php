@@ -3,12 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Services\UserService;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
 
 class UserController extends Controller
 {
+    protected $userService;
+
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
+
     public function register(Request $request)
     {
         $request->validate([
@@ -17,15 +24,9 @@ class UserController extends Controller
             'password' => ['required', 'confirmed', 'min:8'],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-        ]);
+        $result = $this->userService->registerUser($request->only(['name', 'email', 'password']));
 
-        $token = $user->createToken('auth_token')->plainTextToken;
-
-        return response()->json(['user' => $user, 'token' => $token], 201);
+        return response()->json($result, 201);
     }
 
     public function login(Request $request)
