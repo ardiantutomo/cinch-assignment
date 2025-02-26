@@ -7,9 +7,45 @@ The product list is simpler (flattened) than the product details endpoint (provi
 
 I also provided the seeders for dummy data and user. (you can also register a user and use the access token to access the protected routes)
 
-## Products database schema
-![Product Schema](https://raw.githubusercontent.com/ardiantutomo/cinch-assignment/refs/heads/master/image.png)
+## Implementation Details
 
+The Product Rental Service API is built using a clean architecture approach, which separates the application into different layers, each with its own responsibility. This design pattern helps in maintaining a scalable and maintainable codebase.
+
+### Layers
+
+1. **Controller Layer**: This layer handles the incoming HTTP requests and delegates the processing to the appropriate service layer. It is responsible for returning the HTTP responses to the client.
+
+2. **Service Layer**: The service layer contains the business logic of the application. It processes the data received from the controller layer and interacts with the repository layer to perform CRUD operations.
+
+3. **Repository Layer**: The repository layer is responsible for interacting with the database. It contains methods for querying the database and returning the data to the service layer.
+
+### Features
+
+-   **Eager Loading**: To optimize the performance of the API, eager loading is used to load related entities along with the main entity in a single query. This reduces the number of database queries and improves the response time.
+
+-   **Pagination**: The product list endpoint supports pagination, allowing clients to retrieve a specific number of products per page. This helps in managing large datasets and improves the user experience.
+
+-   **Filtering**: The product list endpoint also supports filtering based on various attributes such as category, price range, and availability. This allows clients to narrow down the search results based on their preferences.
+
+-   **Authentication**: Simple authentication is implemented to secure the API endpoints. Users need to register and obtain an access token to access the protected routes.
+
+### Endpoints
+
+-   **Product List**: This endpoint returns a list of products with support for filtering and pagination. The response includes a simplified (flattened) version of the product details.
+
+-   **Product Details**: This endpoint returns detailed information about a specific product, including all nested information such as attributes, rental periods, and regional pricing.
+
+### Seeders
+
+Seeders are provided to populate the database with dummy data and a test user. This helps in setting up the development environment quickly and allows for testing the API without manually adding data.
+
+### Postman Collection
+
+A [Postman collection](https://github.com/ardiantutomo/cinch-assignment/blob/master/Cinch%20Assignment.postman_collection.json) is available for testing the API endpoints. It includes pre-configured requests for all the available endpoints, making it easier to test and debug the API.
+
+## Products database schema
+
+![Product Schema](https://raw.githubusercontent.com/ardiantutomo/cinch-assignment/refs/heads/master/image.png)
 
 ## Dummy User Credentials
 
