@@ -5,6 +5,13 @@ I add simple authentication to the api too.
 I prepare 2 API endpoints for the product list and product details. The product list endpoint has a filter and pagination feature. The product details endpoint is used to get the product details by id.
 The product list is simpler (flattened) than the product details endpoint (providing all nested information).
 
+I also provided the seeders for dummy data and user. (you can also register a user and use the access token to access the protected routes)
+
+## Dummy User Credentials
+
+-   **Email:** test@example.com
+-   **Password:** password
+
 ## Setup
 
 1. Clone the repository:
@@ -31,12 +38,16 @@ The product list is simpler (flattened) than the product details endpoint (provi
     php artisan migrate
     ```
 
-7. Start the development server:
+7. Run the seeders:
+    ```bash
+    php artisan db:seed
+    ```
+8. Start the development server:
     ```bash
     php artisan serve
     ```
-8. Register a user by using the register endpoint
-9. Use the access token to access the protected routes (List and Show product)
+9. Register a user by using the register endpoint
+10. Use the access token to access the protected routes (List and Show product)
 
 ## Running Unit Tests
 
@@ -45,6 +56,11 @@ Unit tests are implemented to ensure the functionality of the API. To run the te
 ```bash
 php artisan test
 ```
+
+## Note
+
+If there is an error about the encryption key, you can generate the key by using the following command:
+`php artisan key:generate`
 
 ## Sample Output for the List API
 
@@ -127,7 +143,7 @@ php artisan test
 
 ## Sample Output for the Show API
 
-````
+```
 {
     "id": 1,
     "name": "Leather Jacket",
@@ -263,5 +279,5 @@ php artisan test
             }
         }
     ]
-}```
-````
+}
+```
