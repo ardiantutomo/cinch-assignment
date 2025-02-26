@@ -13,8 +13,8 @@ class AttributeValueSeeder extends Seeder
         $attributes = Attribute::all();
 
         $attributeValues = [
-            'Color' => ['Red', 'Blue', 'Green'],
-            'Size' => ['Small', 'Medium', 'Large'],
+            'Color' => ['Red'],
+            'Size' => ['Small'],
         ];
 
         foreach ($attributes as $attribute) {
