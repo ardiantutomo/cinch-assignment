@@ -23,16 +23,20 @@ The product list is simpler (flattened) than the product details endpoint (provi
     composer install
     ```
 
-5. Run the migrations:
+5. setup .env file (I use .env.example as template)
+
+6. Run the migrations:
 
     ```bash
     php artisan migrate
     ```
 
-6. Start the development server:
+7. Start the development server:
     ```bash
     php artisan serve
     ```
+8. Register a user by using the register endpoint
+9. Use the access token to access the protected routes (List and Show product)
 
 ## Running Unit Tests
 
