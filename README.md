@@ -52,6 +52,7 @@ I also provided the seeders for dummy data and user. (you can also register a us
     ```
 9. Register a user by using the register endpoint
 10. Use the access token to access the protected routes (List and Show product)
+11. Can check [postman collection](https://github.com/ardiantutomo/cinch-assignment/blob/master/Cinch%20Assignment.postman_collection.json) for testing
 
 ## Running Unit Tests
 
