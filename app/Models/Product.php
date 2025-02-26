@@ -12,7 +12,7 @@ class Product extends Model
 
     public function attributes()
     {
-        return $this->belongsToMany(AttributeValue::class, 'product_attributes');
+        return $this->hasMany(ProductAttribute::class);
     }
 
     public function rentalPeriods()
