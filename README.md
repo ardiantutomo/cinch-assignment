@@ -7,6 +7,10 @@ The product list is simpler (flattened) than the product details endpoint (provi
 
 I also provided the seeders for dummy data and user. (you can also register a user and use the access token to access the protected routes)
 
+## Products database schema
+![Product Schema](https://raw.githubusercontent.com/ardiantutomo/cinch-assignment/refs/heads/master/image.png)
+
+
 ## Dummy User Credentials
 
 -   **Email:** test@example.com
@@ -17,7 +21,7 @@ I also provided the seeders for dummy data and user. (you can also register a us
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/product-rental-service.git
+    git clone https://github.com/ardiantutomo/cinch-assignment.git
     ```
 
 2. Install PHP and MySQL (I use XAMPP for this)
