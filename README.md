@@ -7,6 +7,10 @@ The product list is simpler (flattened) than the product details endpoint (provi
 
 I also provided the seeders for dummy data and user. (you can also register a user and use the access token to access the protected routes)
 
+## Polymorphic Note
+
+I create new migration file for altering product pricing table. It create 2 columns to handle the polymorphic. But, I didn't drop the existing product_id at this time to handle backward compatibility (The previous flow without polymorphic)
+
 ## Implementation Details
 
 The Product Rental Service API is built using a clean architecture approach, which separates the application into different layers, each with its own responsibility. This design pattern helps in maintaining a scalable and maintainable codebase.
