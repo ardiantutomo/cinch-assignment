@@ -9,7 +9,7 @@ class ProductPricing extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['product_id', 'rental_period_id', 'region_id', 'price'];
+    protected $fillable = ['priceable_id', 'priceable_type', 'rental_period_id', 'region_id', 'price'];
 
     public function product()
     {
@@ -24,5 +24,10 @@ class ProductPricing extends Model
     public function region()
     {
         return $this->belongsTo(Region::class);
+    }
+
+    public function priceable()
+    {
+        return $this->morphTo();
     }
 }

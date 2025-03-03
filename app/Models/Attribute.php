@@ -15,4 +15,9 @@ class Attribute extends Model
     {
         return $this->hasMany(AttributeValue::class);
     }
+
+    public function pricings()
+    {
+        return $this->morphMany(ProductPricing::class, 'priceable');
+    }
 }

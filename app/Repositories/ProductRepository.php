@@ -10,8 +10,9 @@ class ProductRepository
     {
         return Product::with([
             'attributes.attributeValues.attribute',
-            'pricing.rentalPeriod',
-            'pricing.region'
+            'attributes.attributeValues.attribute.pricings',
+            'pricings.rentalPeriod',
+            'pricings.region'
         ])->find($productId);
     }
 
@@ -19,18 +20,19 @@ class ProductRepository
     {
         $query = Product::with([
             'attributes.attributeValues.attribute',
-            'pricing.rentalPeriod',
-            'pricing.region'
+            'attributes.attributeValues.attribute.pricings',
+            'pricings.rentalPeriod',
+            'pricings.region'
         ]);
 
         if (isset($filters['region_id'])) {
-            $query->whereHas('pricing.region', function ($q) use ($filters) {
+            $query->whereHas('pricings.region', function ($q) use ($filters) {
                 $q->where('id', $filters['region_id']);
             });
         }
 
         if (isset($filters['rental_period_id'])) {
-            $query->whereHas('pricing.rentalPeriod', function ($q) use ($filters) {
+            $query->whereHas('pricings.rentalPeriod', function ($q) use ($filters) {
                 $q->where('id', $filters['rental_period_id']);
             });
         }
@@ -48,11 +50,18 @@ class ProductRepository
                 'attributes' => $product->attributes->map(function ($attribute) {
                     return [
                         'id' => $attribute->id,
+                        'pricing' => $attribute->attributeValues->attribute->pricings->map(function ($pricing) {
+                            return [
+                                'price' => $pricing->price,
+                                'rental_period_months' => $pricing->rentalPeriod->months,
+                                'region_name' => $pricing->region->name,
+                            ];
+                        }),
                         'value' => $attribute->attributeValues->value,
                         'name' => $attribute->attributeValues->attribute->name,
                     ];
                 }),
-                'pricing' => $product->pricing->map(function ($pricing) {
+                'pricing' => $product->pricings->map(function ($pricing) {
                     return [
                         'price' => $pricing->price,
                         'rental_period_months' => $pricing->rentalPeriod->months,

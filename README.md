@@ -103,7 +103,77 @@ php artisan test
 If there is an error about the encryption key, you can generate the key by using the following command:
 `php artisan key:generate`
 
-## Sample Output for the List API
+## Sample Output for the List API (Added pricing in attributes level too)
+
+{
+"current_page": 1,
+"data": [
+{
+"id": 1,
+"name": "Product 1",
+"description": "Description for product 1",
+"sku": "SKU-0001",
+"created_at": "2025-02-26T07:38:02.000000Z",
+"updated_at": "2025-02-26T07:38:02.000000Z",
+"attributes": [
+{
+"id": 1,
+"pricing": [
+{
+"price": "832.00",
+"rental_period_months": 3,
+"region_name": "Malaysia"
+}
+],
+"value": "Red",
+"name": "Color"
+},
+{
+"id": 2,
+"pricing": [],
+"value": "Small",
+"name": "Size"
+}
+],
+"pricing": [
+{
+"price": "920.00",
+"rental_period_months": 3,
+"region_name": "Singapore"
+}
+]
+}
+],
+"first_page_url": "http://localhost:8000/api/products?page=1",
+"from": 1,
+"last_page": 1,
+"last_page_url": "http://localhost:8000/api/products?page=1",
+"links": [
+{
+"url": null,
+"label": "&laquo; Previous",
+"active": false
+},
+{
+"url": "http://localhost:8000/api/products?page=1",
+"label": "1",
+"active": true
+},
+{
+"url": null,
+"label": "Next &raquo;",
+"active": false
+}
+],
+"next_page_url": null,
+"path": "http://localhost:8000/api/products",
+"per_page": 1,
+"prev_page_url": null,
+"to": 1,
+"total": 1
+}
+
+## Sample Output for the List API (Old before interview)
 
 ```
 {

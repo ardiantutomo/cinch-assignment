@@ -20,8 +20,8 @@ class Product extends Model
         return $this->hasMany(ProductPricing::class);
     }
 
-    public function pricing()
+    public function pricings()
     {
-        return $this->hasMany(ProductPricing::class);
+        return $this->morphMany(ProductPricing::class, 'priceable');
     }
 }

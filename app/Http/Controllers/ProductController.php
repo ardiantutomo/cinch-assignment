@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Services\ProductService;
 use Illuminate\Http\Request;
+use App\Http\Requests\FetchProductsRequest;
+
 
 class ProductController extends Controller
 {
@@ -25,7 +27,7 @@ class ProductController extends Controller
         return response()->json($productDetails);
     }
 
-    public function index(Request $request)
+    public function index(FetchProductsRequest $request)
     {
         $filters = $request->only(['region_id', 'rental_period_id']);
         $perPage = $request->get('per_page', 10);
