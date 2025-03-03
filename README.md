@@ -47,6 +47,9 @@ A [Postman collection](https://github.com/ardiantutomo/cinch-assignment/blob/mas
 
 ![Product Schema](https://raw.githubusercontent.com/ardiantutomo/cinch-assignment/refs/heads/master/image.png)
 
+Updated Product Schema to introduce polymorphic
+![Polymorphic product Schema](https://raw.githubusercontent.com/ardiantutomo/cinch-assignment/refs/heads/master/erd_interview.png)
+
 ## Dummy User Credentials
 
 -   **Email:** test@example.com
